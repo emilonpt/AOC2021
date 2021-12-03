@@ -58,7 +58,7 @@ def remove_rows_on_col_index(row,col_index,to_remove):
                 to_return.remove(r)
     return to_return
 
-def get_rows_and_cols_after_removing_rows(cols,c,rows,gas_type):
+def get_value(cols,c,rows,gas_type):
     if len(rows) == 1:
         return rows[0]
     most_common, least_common = find_most_and_least_common(cols[c])
@@ -72,10 +72,10 @@ def get_rows_and_cols_after_removing_rows(cols,c,rows,gas_type):
     elif gas_type == "CO2":
         rows = remove_rows_on_col_index(rows,c,most_common)
     cols = cols_from_rows(rows)
-    return get_rows_and_cols_after_removing_rows(cols,c+1,rows,gas_type)
+    return get_value(cols,c+1,rows,gas_type)
 
 
-rows_oxygen = get_rows_and_cols_after_removing_rows(cols_oxygen,0,rows_oxygen,"oxygen")
-rows_CO2 = get_rows_and_cols_after_removing_rows(cols_CO2,0,rows_CO2,"CO2")
+rows_oxygen = get_value(cols_oxygen,0,rows_oxygen,"oxygen")
+rows_CO2 = get_value(cols_CO2,0,rows_CO2,"CO2")
 
 print(to_decimal_and_multiply(rows_oxygen,rows_CO2))
