@@ -1,5 +1,5 @@
 #part 1
-with open("./part1.txt", encoding = 'utf-8') as f:
+with open("./input.txt", encoding = 'utf-8') as f:
     data = [d for d in f.read().splitlines()]
 
 data = [int(d) for d in data]
