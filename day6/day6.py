@@ -33,7 +33,6 @@ def model_x_days(data, x):
 #re-work for part 2 to be more efficient (ie. not to wait "forever")
 
 def process_day_v2(data_counts):
-    print(data_counts)
     num_zeroes = data_counts[0]
     for i in range(1,9):
         to_add = data_counts[i]
@@ -50,14 +49,19 @@ def process_day_v2(data_counts):
 data_counts = Counter(data)
 
 #part 1
-"""for i in range(80):
-    print(i)
-    data = process_day_v2(data_counts)"""
+for i in range(80):
+    data_counts = process_day_v2(data_counts)
+
+num_elements = sum(data_counts.values())
+
+print(num_elements)
 
 #part 2
+
+data_counts = Counter(data)
+
 for i in range(256):
-    print(i)
-    data = process_day_v2(data_counts)
+    data_counts = process_day_v2(data_counts)
 
 num_elements = sum(data_counts.values())
 
